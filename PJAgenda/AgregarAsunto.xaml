@@ -1,0 +1,63 @@
+﻿<Window x:Class="PJAgenda.AgregarAsunto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PJAgenda"
+        mc:Ignorable="d"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Editar Audiencias" Height="200" Width="800" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" WindowState="Normal">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <!-- throw in some extra colour for our floating action button -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="gb_ingresarasunto"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Header="Agregar Asunto Judicial" Margin="10" Padding="10" SnapsToDevicePixels="True">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <ComboBox Name="cb_distritos" SelectionChanged="cb_distritos_SelectionChanged"  Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                </ComboBox>
+                <ComboBox Name="cb_juzgados" SelectionChanged="cb_juzgados_SelectionChanged" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                </ComboBox>
+                <TextBox x:Name="txt_expediente" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="300"/>
+                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >Distrito:</Label>
+                <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Juzgado o Sala</Label>
+                <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Expediente:</Label>
+                <Button x:Name="btn_agregarAsunto" Click="btn_agregarAsunto_Click" Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">Agregar</Button>
+            </Grid>
+        </GroupBox>
+
+
+    </Grid>
+</Window>

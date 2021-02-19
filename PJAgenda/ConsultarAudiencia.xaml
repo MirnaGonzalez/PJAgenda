@@ -1,0 +1,279 @@
+﻿<Window x:Class="PJAgenda.ConsultarAudiencia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PJAgenda"
+        mc:Ignorable="d"
+                xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="ConsultarAudiencia" Height="1200" Width="1000" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <!-- throw in some extra colour for our floating action button -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Green.Named.Primary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Margin="16" Grid.Row="0" Grid.ColumnSpan="2">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                  
+                    <TextBlock Grid.Row="0" Grid.Column="0"  TextAlignment="Center" FontSize="29" FontFamily="Adobe Fangsong Std R" HorizontalAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Center" Margin="0" >Sistema de registro de audiencias</TextBlock>
+                    <Image Grid.Row="0" Grid.Column="2" Source="Imagenes/title.png" Width="149" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,40,0"  />
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Margin="10" Padding="10" >
+                <StackPanel>
+                    <StackPanel Margin="0,20" HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" >Tipo de búsqueda:</Label>
+                        <ComboBox  x:Name="cb_tipobusqueda" SelectionChanged="cb_tipobusqueda_SelectionChanged" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+
+                    </StackPanel>
+                    <GroupBox Name="gb_todo" Header="Filtros de búsqueda" Margin="10" Padding="10" SnapsToDevicePixels="True">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label Margin="0,20" Name="lbl_titulo" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >Ingrese N° Folio:</Label>
+                            <TextBox x:Name="txt_folio" Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="200" />
+                            <ComboBox  Grid.Row="4" Grid.Column="0" x:Name="cb_tipovisita"  SelectionChanged="cb_tipovisita_SelectionChanged"  HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+                            <ComboBox  Grid.Row="5" Grid.Column="0" x:Name="cb_tipoasunto"  SelectionChanged="cb_tipoasunto_SelectionChanged"  HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+                            <Grid Margin="0,20" Name="grid_juzgado" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >Distrito</Label>
+                                <ComboBox  Grid.Row="1" Grid.Column="0" x:Name="cb_distrito"  SelectionChanged="cb_distrito_SelectionChanged"  HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+                                <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >Juzgado</Label>
+                                <ComboBox  Grid.Row="1" Grid.Column="1" x:Name="cb_juzgado"  SelectionChanged="cb_juzgado_SelectionChanged"  HorizontalAlignment="Center" VerticalAlignment="Center"></ComboBox>
+                                <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" >Expediente/Toca/Causa</Label>
+                                <TextBox x:Name="txt_expediente" Width="300" Grid.Row="1"  Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"  />
+                            </Grid>
+
+
+                            <Grid Name="grid_porNombre" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="txt_Nombre"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="300"/>
+                                <TextBox x:Name="txt_ap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="300"/>
+                                <TextBox x:Name="txt_am" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="300"/>
+
+                                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >Nombre (s):</Label>
+                                <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Apellido Paterno:</Label>
+                                <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Apellido Materno:</Label>
+                            </Grid>
+                            <Grid Name="grid_porPeriodo" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <DatePicker Width="300" Name="dp_inicio" Grid.Row="0" Language="ES" HorizontalAlignment="Center" Grid.Column="0"  ></DatePicker>
+                                <DatePicker Width="300" Name="dp_fin" Grid.Row="0" Grid.Column="1"  Language="ES" HorizontalAlignment="Center"  ></DatePicker>
+                                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" >Fecha de Inicio</Label>
+                                <Label Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Fecha Final</Label>
+                            </Grid>
+
+                            <Button Margin="20" Grid.Row="9" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Center"
+                                            x:Name="btnConsultar" Click="btnConsultar_Click">
+                                <StackPanel   Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Search" />
+                                    <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">Consultar</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Name="gb_resultados"  Header="Resultados de búsqueda" Margin="10" Padding="10" SnapsToDevicePixels="True">
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" ></ColumnDefinition>
+                                    <ColumnDefinition Width="200"></ColumnDefinition>
+                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Name="total_resultados" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Oblique" ></Label>
+                                <TextBlock Margin="5" Text="Folio Audiencia" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock Margin="5" Text="Tipo de visita" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock  Margin="5" Text="Persona que solicitó" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock  Margin="5" Text="Fecha" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock Margin="5"  Text="Tipo de Asunto" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock  Margin="5" Text="Más" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+
+                                <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6"  x:Name="lv_audiencias" MouseLeftButtonUp="lv_audiencias_MouseLeftButtonUp">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="120"></ColumnDefinition>
+                                                    <ColumnDefinition Width="200"></ColumnDefinition>
+                                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Text="{Binding IdAudiencia}" Grid.Row="0" Grid.Column="0" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding Tipo_Visita}" Grid.Row="0" Grid.Column="1" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding Nombre}" Grid.Row="0" Grid.Column="2"  TextAlignment="Center" />
+                                                <TextBlock Text="{Binding Fecha, StringFormat='dd/MM/yyyy HH:mm'}" Grid.Row="0" Grid.Column="3"  TextAlignment="Center" />
+                                                <TextBlock Text="{Binding Tipo_Audiencia}" Grid.Row="0" Grid.Column="4" TextAlignment="Center"/>
+                                                <TextBlock Text="Opciones" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="300" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TextDecorations="Underline"/>
+
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </ScrollViewer>
+                    </GroupBox>
+                    <GroupBox Name="gb_resultados2" HorizontalAlignment="Center"  Header="Resultados de búsqueda" Margin="10" Padding="10" SnapsToDevicePixels="True">
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" ></ColumnDefinition>
+                                    <ColumnDefinition Width="200"></ColumnDefinition>
+                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                    <ColumnDefinition Width="0"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Name="total_resultadoss" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Oblique" ></Label>
+                                <TextBlock Margin="5" Text="Folio Audiencia" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock Margin="5" Text="Tipo de visita" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock  Margin="5" Text="Persona que solicito" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock Margin="5"  Text="Tipo de Asunto" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+                                <TextBlock  Margin="5" Text="Mas" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+
+                                <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6"  x:Name="lv_audiencias2" MouseLeftButtonUp="lv_audiencias2_MouseLeftButtonUp">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="120"></ColumnDefinition>
+                                                    <ColumnDefinition Width="200"></ColumnDefinition>
+                                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                                    <ColumnDefinition Width="0"></ColumnDefinition>
+                                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Text="{Binding IdAudiencia}" Grid.Row="0" Grid.Column="0" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding Tipo_Visita}" Grid.Row="0" Grid.Column="1" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding Nombre}" Grid.Row="0" Grid.Column="2"  TextAlignment="Center" />
+                                                <TextBlock Text="{Binding Tipo_Audiencia}" Grid.Row="0" Grid.Column="4" TextAlignment="Center"/>
+                                                <TextBlock Text="Opciones" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="300" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TextDecorations="Underline"/>
+
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </ScrollViewer>
+                    </GroupBox>
+
+
+
+                </StackPanel>
+            </materialDesign:Card>
+        </Grid>
+    </ScrollViewer>
+</Window>
